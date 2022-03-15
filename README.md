@@ -49,6 +49,33 @@ task: Available tasks for this project:
 
 ```
 
+## Swagger
+
+Install swagger
+
+```bash
+$ brew tap go-swagger/go-swagger
+$ brew install go-swagger
+```
+
+Validate the swagger file
+
+```bash
+$ task swagger.validate
+
+task: [swagger.validate] swagger validate pkg/swagger/swagger.yml
+2022/03/15 14:40:19
+The swagger spec at "pkg/swagger/swagger.yml" is valid against swagger specification 2.0
+```
+
+Create the swagger definitions in an HTML doc.
+
+```bash
+$ task swagger.doc
+
+task: [swagger.doc] docker run -i yousan/swagger-yaml-to-html < pkg/swagger/swagger.yml > doc/index.html
+```
+
 ## Ref
 
 - [Learning Go by examples: part 2 - Create an HTTP REST API Server in Go](https://dev.to/aurelievache/learning-go-by-examples-part-2-create-an-http-rest-api-server-in-go-1cdm)
