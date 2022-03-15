@@ -6,11 +6,6 @@ tasks:
     cmds:
       - GOFLAGS=-mod=mod go build -o ./bin/go-restful-api ./internal/main.go
 
-  build.linux:
-    desc: Build the app for linux
-    cmds:
-      - GOFLAGS=-mod=mod GOOS=linux GOARCH=amd64 go build -o ./bin/go-restful-api ./internal/main.go
-
   run:
     desc: Run the app
     cmds:
