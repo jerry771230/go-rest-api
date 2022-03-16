@@ -112,6 +112,59 @@ pkg/swagger
 └── swagger.yml
 ```
 
+## Test app
+
+```bash
+$ curl localhost:8080
+{"code":404,"message":"path / was not found"}%
+
+$ curl localhost:8080/healthz
+OK%
+
+$ curl localhost:8080/hello/jerry
+"Hello jerry!"
+
+$ curl -O localhost:8080/gopher/dr-who
+```
+
+> Notice:
+> The format of the file dr-who downloaded using the curl command may be unexpected. But executing that url on the browser would be correct.
+
+## Build for other environments/OS
+
+For Windows:
+
+```bash
+# Windows 32 bits
+$ GOOS=windows GOARCH=386 go build -o bin/go-rest-api-win-386 internal/main.go
+
+# Windows 64 bits
+$ GOOS=windows GOARCH=amd64 go build -o bin/go-rest-api-win-64 internal/main.go
+```
+
+For Linux:
+
+```bash
+# Linux 32 bits
+$ GOOS=linux GOARCH=386 go build -o bin/go-rest-api-linux-386 internal/main.go
+
+# Linux 64 bits
+$ GOOS=linux GOARCH=amd64 go build -o bin/go-rest-api-linux-64 internal/main.go
+```
+
+For macOS:
+
+```bash
+# MacOS 32 bits
+$ GOOS=darwin GOARCH=386 go build -o bin/go-rest-api-darwin-386 internal/main.go
+
+# MacOS 64 bits
+$ GOOS=darwin GOARCH=amd64 go build -o bin/go-rest-api-darwin-64 internal/main.go
+
+# MacOS 64 bits for M1 chip
+$ GOOS=darwin GOARCH=arm64 go build -o bin/go-rest-api-darwin-arm64 internal/main.go
+```
+
 ## Ref
 
 - [Learning Go by examples: part 2 - Create an HTTP REST API Server in Go](https://dev.to/aurelievache/learning-go-by-examples-part-2-create-an-http-rest-api-server-in-go-1cdm)
